@@ -21,7 +21,7 @@ import me.simongohl.thisnextsong.R;
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private AudioManager mAudioManager;
+    public static AudioManager mAudioManager;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -39,54 +39,54 @@ public class HomeFragment extends Fragment {
         return root;
     }
 
-        public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
-            super.onViewCreated(view, savedInstanceState);
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-            view.findViewById(R.id.btn_play).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_MEDIA_PLAY);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        System.out.println("PLAY");
-                        mAudioManager.dispatchMediaKeyEvent(event);
-                    }
+        view.findViewById(R.id.btn_play).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN, KeyEvent.KEYCODE_MEDIA_PLAY);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    System.out.println("PLAY");
+                    mAudioManager.dispatchMediaKeyEvent(event);
                 }
-            });
+            }
+        });
 
-            view.findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN,
-                            KeyEvent.KEYCODE_MEDIA_PREVIOUS);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        System.out.println("BACK");
-                        mAudioManager.dispatchMediaKeyEvent(event);
-                    }
+        view.findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN,
+                        KeyEvent.KEYCODE_MEDIA_PREVIOUS);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    System.out.println("BACK");
+                    mAudioManager.dispatchMediaKeyEvent(event);
                 }
-            });
+            }
+        });
 
-            view.findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN,
-                            KeyEvent.KEYCODE_MEDIA_NEXT);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        System.out.println("NEXT");
-                        mAudioManager.dispatchMediaKeyEvent(event);
-                    }
+        view.findViewById(R.id.btn_next).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN,
+                        KeyEvent.KEYCODE_MEDIA_NEXT);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    System.out.println("NEXT");
+                    mAudioManager.dispatchMediaKeyEvent(event);
                 }
-            });
+            }
+        });
 
-            view.findViewById(R.id.btn_pause).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN,
-                            KeyEvent.KEYCODE_MEDIA_PAUSE);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        System.out.println("NEXT");
-                        mAudioManager.dispatchMediaKeyEvent(event);
-                    }
+        view.findViewById(R.id.btn_pause).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                KeyEvent event = new KeyEvent(KeyEvent.ACTION_DOWN,
+                        KeyEvent.KEYCODE_MEDIA_PAUSE);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    System.out.println("PAUSE");
+                    mAudioManager.dispatchMediaKeyEvent(event);
                 }
-            });
-        }
+            }
+        });
+    }
 }
