@@ -5,6 +5,7 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,11 +19,13 @@ import me.simongohl.thisnextsong.ui.home.HomeFragment;
 
 public class MainActivity extends AppCompatActivity {
     MediaBroadcastReceiver mediaBroadcastReceiver = new MediaBroadcastReceiver();
+    Button btn_add_question;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
